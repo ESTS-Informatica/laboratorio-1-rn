@@ -14,6 +14,7 @@ public class WordGenerator
     
     public WordGenerator(){
         words = new ArrayList<String>();
+        fillArrayList();
     }
     
     private void fillArrayList(){

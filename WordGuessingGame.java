@@ -11,11 +11,13 @@ public class WordGuessingGame
     private String guessedWord;
     private int numberOfTries;
     private InputReader reader;
+    private WordGenerator wordGenerator;
     
     public WordGuessingGame(){
         reader = new InputReader();
-        hiddenWord = "abc";
-        guessedWord = "___";
+        wordGenerator = new WordGenerator();
+        hiddenWord = wordGenerator.generateWord();
+        guessedWord = initializeGuessedWord();
         numberOfTries = 0;
     }
     
@@ -29,6 +31,14 @@ public class WordGuessingGame
     
     public int getNumberOfTries(){
         return numberOfTries;
+    }
+    
+    private String initializeGuessedWord(){
+        String aux = "";
+        for(int i = 0; i < hiddenWord.length(); i++){
+            aux = aux + "_";
+        }
+        return aux;
     }
     
     private void showGuessedWord(){
