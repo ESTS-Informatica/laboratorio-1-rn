@@ -50,5 +50,7 @@ public class WordGuessingGame
                 aux = hiddenWord.substring(0,i) + guessedChar + hiddenWord.substring(i + 1);
             }
         }
+        guessedWord = aux;
+        numberOfTries++;
     }
 }
