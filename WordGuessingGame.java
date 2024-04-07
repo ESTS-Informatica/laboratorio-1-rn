@@ -46,7 +46,11 @@ public class WordGuessingGame
     }
     
     public void play(){
-        
+        showWelcome();
+        while(guessedWord.contains("_")){
+            guess(reader.getChar("Digite um caracter: "));
+        }
+        showResult();
     }
     
     private void showWelcome(){
@@ -54,13 +58,18 @@ public class WordGuessingGame
     }
     
     private void guess(char guessedChar){
-        String aux="";
+        StringBuilder auxBuilder = new StringBuilder(guessedWord);
         for(int i=0;i<hiddenWord.length();i++){
             if(hiddenWord.charAt(i)==guessedChar){
-                aux = hiddenWord.substring(0,i) + guessedChar + hiddenWord.substring(i + 1);
+                auxBuilder.setCharAt(i, guessedChar);
             }
         }
-        guessedWord = aux;
+        guessedWord = auxBuilder.toString();
         numberOfTries++;
+        System.out.println(guessedWord);
+    }
+    
+    private void showResult(){
+        System.out.println(numberOfTries);
     }
 }
