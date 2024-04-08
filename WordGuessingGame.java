@@ -21,16 +21,16 @@ public class WordGuessingGame
         numberOfTries = 0;
     }
     
-    public String getHiddenWord(){
-        return hiddenWord;
+    public void setHiddenWord(){
+        hiddenWord = wordGenerator.generateWord();
     }
     
-    public String getGuessedWord(){
-        return guessedWord;
+    public void setGuessedWord(){
+        guessedWord = initializeGuessedWord();
     }
     
-    public int getNumberOfTries(){
-        return numberOfTries;
+    public void setNumberOfTries(){
+        numberOfTries = 0;
     }
     
     private String initializeGuessedWord(){
